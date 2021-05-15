@@ -33,7 +33,7 @@ const CaughtPokemons = ({ items, /*releasedPokemon*/ }) => {
             </Figure.Caption>
 
                     <Figure.Image
-                                src={`/pokemons/${getImageID(id)}.png`}
+                                src={`../../../public/pokemons/${getImageID(id)}.png`}
                                 alt={name}
                     />           
 

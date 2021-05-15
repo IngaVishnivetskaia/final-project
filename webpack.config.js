@@ -50,7 +50,8 @@ module.exports = {
       // Loading CSS
       {
         test: /\.(css)$/,
-        use: [ MiniCssExtractPlugin.loader, 'css-loader']
+        use: ['style-loader', 'css-loader']
+        // use: [ MiniCssExtractPlugin.loader, 'css-loader']
       },
 
       // Loading SASS/SCSS

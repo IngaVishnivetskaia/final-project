@@ -10,6 +10,9 @@ import { ServiceProvider } from './components/pokemon-service-context';
 
 import store from './store';
 
+import 'bootstrap';
+import '../public/bootstrap.min.css';
+
 
 const pokemonService = new PokemonService();
 

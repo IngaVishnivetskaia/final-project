@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
+
 import './pokemon-list-item.css';
 
 const PokemonListItem = ( {pokemon, makeCatchPokemon } ) => {
@@ -26,7 +27,8 @@ const PokemonListItem = ( {pokemon, makeCatchPokemon } ) => {
             <Link to={`/${id}`}>
             <div>
                     <img 
-                                src={`/pokemons/${getMissingImageID(id)}.png`}
+                                // src={`/pokemons/${getMissingImageID(id)}.png`}
+                                src={`../../../public/pokemons/${getMissingImageID(id)}.png`}
                                 alt={name}/>
             </div>
             </Link>
