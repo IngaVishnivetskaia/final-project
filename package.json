@@ -1,0 +1,24 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "pokedex app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IngaVishnivetskaia/final-project.git"
+  },
+  "author": "Inga Vishnivetskaia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IngaVishnivetskaia/final-project/issues"
+  },
+  "homepage": "https://github.com/IngaVishnivetskaia/final-project#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/preset-env": "^7.14.2"
+  }
+}
