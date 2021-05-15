@@ -1,0 +1,16 @@
+.spinner {
+    font-size: 40px;
+    color: green;
+}
+
+span {
+    margin-left: 30px;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
