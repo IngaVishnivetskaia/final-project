@@ -6,8 +6,6 @@ const initialState = {
     caughtPokemons: []
 };
 
-
-
 const reducer = (state = initialState, action ) => {
     
     switch (action.type) {
@@ -48,15 +46,15 @@ const reducer = (state = initialState, action ) => {
                 ]
             };
 
-        case 'POKEMON_RELEASED':
-            const { index } = action.payload;
-            return {
-                ...state,
-                caughtPokemons: [
-                    ...state.caughtPokemons.slice(0, index),
-                    ...state.caughtPokemons.slice(index + 1)
-                  ]
-            };
+        // case 'POKEMON_RELEASED':
+        //     const { index } = action.payload;
+        //     return {
+        //         ...state,
+        //         caughtPokemons: [
+        //             ...state.caughtPokemons.slice(0, index),
+        //             ...state.caughtPokemons.slice(index + 1)
+        //           ]
+        //     };
 
         case 'POKEMONS_LOADED_MORE':
                 return {

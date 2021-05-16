@@ -1,3 +1,6 @@
+To fetch data jsonserver has to be on 'http://localhost:3000/pokemons';
+
+
 # Final project
 
 Это последнее задание в курсе. Дедлайн - **17.05**!

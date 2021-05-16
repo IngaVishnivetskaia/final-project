@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PokemonListItem from '../pokemon-list-item';
 import { connect } from 'react-redux';
 
-
 import withPokemonService from '../hoc';
-import { pokemonsLoaded, pokemonsError, makeCatchPokemon, loadMorePokemon /*releasedPokemon */ } from '../../actions';
+import { pokemonsLoaded, pokemonsError, makeCatchPokemon, loadMorePokemon } from '../../actions';
 import compose from '../../utils';
 
 import './pokemon-list.css';
@@ -14,17 +13,13 @@ import SpinnerLoad from '../spinner';
 import ErrorIndicator from '../error-indicator';
 import { Container } from 'react-bootstrap';
 
-
-
-
 class PokemonList extends Component {
 
   componentDidMount() {
 
     const { pokemonService, 
       pokemonsLoaded,
-      pokemonsError } = this.props;
- 
+      pokemonsError } = this.props; 
 
     pokemonService.getPokemons()
       .then((data) => pokemonsLoaded(data))
@@ -41,9 +36,6 @@ class PokemonList extends Component {
     //     //dispath action в store
     //    this.props.pokemonsLoaded(data);
     // }
-
-    
-
 
     render() {
         const { pokemons, loading, error, makeCatchPokemon, loadMorePokemon, visible,  /*releasedPokemon */ } = this.props;
@@ -66,21 +58,14 @@ class PokemonList extends Component {
               pokemons.slice(0, visible).map((pokemon) => {
                 return (
                   <Col lg={true}  key={pokemon.id} >
-                        <PokemonListItem pokemon={pokemon} 
-                    
+                        <PokemonListItem pokemon={pokemon}                     
                         makeCatchPokemon={ () => makeCatchPokemon(pokemon.id) }
-                        
-                        // releasedPokemon = { () => releasedPokemon(pokemon.id) }
-                        
+                            
                         />
                         
                   </Col>
                 )
               })
-
-
-
-
             }
               <div>
                  <button 
@@ -115,7 +100,6 @@ const mapDispatchToProps = {
       pokemonsError,
       makeCatchPokemon,
       loadMorePokemon
-      // releasedPokemon
     }; //делаем сразу объектом, а не функцией
     
     
@@ -126,9 +110,6 @@ const mapDispatchToProps = {
             //     payload: newPokemons
             // }            
             
-
-
-
 export default compose(
   withPokemonService(),
   connect(mapStateToProps, mapDispatchToProps)

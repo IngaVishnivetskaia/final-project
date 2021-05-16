@@ -11,8 +11,7 @@ const SpinnerLoad = () => {
             </Spinner>
             <span className="sr-only spinner">Loading pokemons...</span>
        </div>
-    )
-    
+    )    
 };
 
 export default SpinnerLoad;

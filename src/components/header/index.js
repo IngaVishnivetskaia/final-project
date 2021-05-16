@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import './header.css';
 
 const Header = () => {
-
-
-
     return (
         <header className="navbar navbar-expand-lg navbar-light bg-light">
 

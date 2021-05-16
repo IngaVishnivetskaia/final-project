@@ -25,12 +25,6 @@ export const loadMorePokemon = (newPokemons) => {
         payload: newPokemons
     };
 }; 
-// export const releasedPokemon = (pokemonId) => {
-//     return {
-//         type: 'POKEMON_RELEASED',
-//         payload: pokemonId
-//     };
-// };
 
 export {
     pokemonsLoaded,

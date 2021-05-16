@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import withPokemonService from '../hoc';
-import { pokemonsLoaded, pokemonsError,  /*releasedPokemon */ } from '../../actions';
+import { pokemonsLoaded, pokemonsError } from '../../actions';
 import compose from '../../utils';
 
 import Spinner from '../spinner';
@@ -15,9 +15,6 @@ import './pokemon-page.css'
 
 
 class PokemonPage extends Component {
-
- 
-
 
   componentDidMount() {
 
@@ -31,20 +28,8 @@ class PokemonPage extends Component {
 
   }
 
-    // componentDidMount() {
-    //     //получить данные
-    //     const { pokemonService } = this.props;
-    //     const data = pokemonService.getPokemons();
-    //    console.log(`componentdidmount: ${data}`);
-    // //  console.log(data);
-    //     //dispath action в store
-    //    this.props.pokemonsLoaded(data);
-    // }
-
-    
-
-    render() {
-        const { pokemons, loading, error, caughtPokemons, disabled, makeCatchPokemon /*releasedPokemon */ } = this.props;
+     render() {
+        const { pokemons, loading, error, caughtPokemons } = this.props;
             
         let idP = this.props.match.params.slug;        
         
@@ -133,14 +118,14 @@ const mapStateToProps = (state) => {
        caughtPokemons: state.caughtPokemons,
        loading: state.loading,
        error: state.error,
-    //    disabled: state.disabled // button
+    
    };
 };
 
 const mapDispatchToProps = {
       pokemonsLoaded,
       pokemonsError,
-    //   makeCatchPokemon,
+    
     }; 
 
 export default compose(
