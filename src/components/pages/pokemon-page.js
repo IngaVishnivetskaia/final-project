@@ -44,16 +44,9 @@ class PokemonPage extends Component {
     
 
     render() {
-        const { pokemons, loading, error, disabled, makeCatchPokemon /*releasedPokemon */ } = this.props;
-
-  
+        const { pokemons, loading, error, caughtPokemons, disabled, makeCatchPokemon /*releasedPokemon */ } = this.props;
             
-            const idP = this.props.match.params.slug;
-
-            // console.log(`try to get match.param ${idP}`);
-            // console.log(`what is pokemons ${pokemons}`);
-            // console.log(`what is (pokemons[idP].name) ${pokemons[idP].name}`)
-        
+        let idP = this.props.match.params.slug;        
         
         if (loading) {
           return <Spinner />
@@ -79,9 +72,27 @@ class PokemonPage extends Component {
                 return idP - 9199;
             }
         };
+        
 
-        if ( idP < 0 || idP > 10147 )
+        // getting DATE if caught
+        const getDateIfCaught = (caughtPokemons, idP) => {
+          const caughtIds = caughtPokemons.map(el => el.id); 
+          console.log(caughtIds);
+          console.log( caughtIds.includes (+idP));
+          if ( caughtIds.includes(+idP) ) {       
+            let indexInArr = caughtPokemons.findIndex( el => el.id == idP);                 
+            return `You have caught me on ${caughtPokemons[indexInArr].date}`;
+          }
+          else {
+            return 'Try to catch me on the main page!';
+          }
+        };
+        // DATE
+
+
+        if ( idP < 0 || idP > 10147 ) {
         return (<h1>No such pokemon here</h1>);
+        };
 
         const name = pokemons[getPokemonInArray(idP)].name;
         const nameUpperCase = name.charAt(0).toUpperCase() + name.slice(1);
@@ -91,9 +102,11 @@ class PokemonPage extends Component {
              <div className="container">     
               
                 <h2>{`My name is ${nameUpperCase}` }</h2>
+                <h4>{`${getDateIfCaught (caughtPokemons, idP)}`}</h4>
+
                 <div className="pokemon-image">
                          <img className="image"
-                                     src={`/pokemons/${getImageID(idP)}.png`} 
+                                     src={`../../../public/pokemons/${getImageID(idP)}.png`} 
                                      alt={pokemons[getPokemonInArray(idP)].name}/>
                 </div>          
                 
@@ -117,6 +130,7 @@ class PokemonPage extends Component {
 const mapStateToProps = (state) => {
    return {
        pokemons: state.pokemons,
+       caughtPokemons: state.caughtPokemons,
        loading: state.loading,
        error: state.error,
     //    disabled: state.disabled // button
@@ -133,49 +147,3 @@ export default compose(
   withPokemonService(),
   connect(mapStateToProps, mapDispatchToProps)
 )(PokemonPage);
-
-
-
-// ПОПЫТКА С USESELECTOR:
-// import React from 'react'
-// import { useSelector } from 'react-redux'
-// import { Link } from 'react-router-dom'
-
-
-
-// export const PokemonPage = ({ match }) => {
-//   const { slug } = match.params;
-//   console.log(slug); 
-
-
-//   const post = useSelector(state => {
-//       console.log(state);
-//       return state.pokemons.find( pokemons => pokemons.id === slug )});
-
-//       console.log(`post is ${post}`);
-
- 
-
-//   if (!post) {
-//     return (
-//       <section>
-//         <h2>Pokemon not found!</h2>
-//       </section>
-//     )
-//   }
-
-//   return (
-//     <div>
-      
-//         <h2>{post.name}</h2>
-        
-
-//         <Link to={`/`} className="button">
-//           Edit Post
-//         </Link>
-      
-//     </div>
-//   )
-// }
-
-// export default PokemonPage;
