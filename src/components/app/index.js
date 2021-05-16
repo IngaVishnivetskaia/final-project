@@ -30,17 +30,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
-
-// import './app.css';
-// import withPokemonService from '../hoc';
-
-// const App = ( {pokemonService} ) => {
-//     console.log(pokemonService.getPokemons())
-//     return <div>App</div>
-// };
-
-// export default withPokemonService()(App);
