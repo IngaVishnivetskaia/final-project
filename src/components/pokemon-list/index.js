@@ -38,7 +38,7 @@ class PokemonList extends Component {
     // }
 
     render() {
-        const { pokemons, loading, error, makeCatchPokemon, loadMorePokemon, visible,  /*releasedPokemon */ } = this.props;
+        const { pokemons, loading, error, makeCatchPokemon, loadMorePokemon, visible, caughtPokemons } = this.props;
         
         if (loading) {
           return <SpinnerLoad />
@@ -50,17 +50,14 @@ class PokemonList extends Component {
           
         return (
          
-           <Container>
-             <Row>
-
-             
+          <Container>
+            <Row>             
             { 
               pokemons.slice(0, visible).map((pokemon) => {
                 return (
                   <Col lg={true}  key={pokemon.id} >
-                        <PokemonListItem pokemon={pokemon}                     
-                        makeCatchPokemon={ () => makeCatchPokemon(pokemon.id) }
-                            
+                        <PokemonListItem pokemon={pokemon} caughtPokemons={caughtPokemons}                    
+                        makeCatchPokemon={ () => makeCatchPokemon(pokemon.id) }                            
                         />
                         
                   </Col>
@@ -73,7 +70,7 @@ class PokemonList extends Component {
                  className="btn btn-secondary"
                  >Load more pokemons...</button>
               </div>
-          </Row>
+            </Row>
           </Container>
     
         );
