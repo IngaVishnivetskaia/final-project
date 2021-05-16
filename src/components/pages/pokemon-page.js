@@ -77,8 +77,8 @@ class PokemonPage extends Component {
         // getting DATE if caught
         const getDateIfCaught = (caughtPokemons, idP) => {
           const caughtIds = caughtPokemons.map(el => el.id); 
-          console.log(caughtIds);
-          console.log( caughtIds.includes (+idP));
+          // console.log(caughtIds);
+          // console.log( caughtIds.includes (+idP));
           if ( caughtIds.includes(+idP) ) {       
             let indexInArr = caughtPokemons.findIndex( el => el.id == idP);                 
             return `You have caught me on ${caughtPokemons[indexInArr].date}`;

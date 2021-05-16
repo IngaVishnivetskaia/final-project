@@ -28,9 +28,7 @@ class PokemonList extends Component {
 
     pokemonService.getPokemons()
       .then((data) => pokemonsLoaded(data))
-      .catch((err) => pokemonsError(err)); //передаем объект с ощибкой в action creator
-
-    
+      .catch((err) => pokemonsError(err)); //передаем объект с ощибкой в action creator   
 
   }
 
