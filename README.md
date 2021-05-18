@@ -1,4 +1,7 @@
-To fetch data jsonserver has to be on 'http://localhost:3000/pokemons';
+for styles: bootstrap react-bootsrap 
+
+1) from folder "jsonserver": "npm run json:server";
+2) from root folder: "npm start"
 
 
 # Final project
