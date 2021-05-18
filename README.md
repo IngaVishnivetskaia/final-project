@@ -1,4 +1,4 @@
-for styles: bootstrap react-bootsrap 
+for styles: bootstrap react-bootstrap 
 
 1) from folder "jsonserver": "npm run json:server";
 2) from root folder: "npm start"
